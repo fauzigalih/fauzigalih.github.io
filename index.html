@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     <link rel="stylesheet" href="style.css" />
 
-    <title>Hello, world!</title>
+    <title>My Portfoio</title>
   </head>
   <body id="home">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
@@ -142,6 +142,10 @@
             <h2>Contact Me</h2>
           </div>
         </div>
+        <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+          <strong>Terimakasih!</strong> Pesan Kamu Telah Berhasil Dikirim.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
             <form name="submit-to-google-sheet">
@@ -157,7 +161,11 @@
                 <label for="message" class="form-label">Pesan</label>
                 <textarea name="message" class="form-control" id="message" rows="3"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-primary btn-send">Kirim</button>
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -178,11 +186,24 @@
     <script>
       const scriptURL = "https://script.google.com/macros/s/AKfycbzn2N4mdCFpx_iZsX21UZENw2gNi7n8BuO6qBfKyLoQ8kOmcWnYlmIHsoZ_vQEi_wELKQ/exec";
       const form = document.forms["submit-to-google-sheet"];
+      const myAlert = document.querySelector(".my-alert");
+      const btnSend = document.querySelector(".btn-send");
+      const btnLoading = document.querySelector(".btn-loading");
+
+      btnSend.classList.toggle("d-none");
+      btnLoading.classList.toggle("d-none");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => console.log("Success!", response))
+          .then((response) => {
+            console.log("Success!", response);
+            btnSend.classList.toggle("d-none");
+            btnLoading.classList.toggle("d-none");
+            myAlert.classList.toggle("d-none");
+
+            form.reset();
+          })
           .catch((error) => console.error("Error!", error.message));
       });
     </script>
