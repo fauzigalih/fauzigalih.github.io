@@ -37,14 +37,6 @@ section {
   width: 300px;
 }
 
-.about-img {
-  /* background-color: red; */
-}
-
-.about-text {
-  /* background-color: blue; */
-}
-
 .skills {
   display: flex;
   flex-wrap: wrap;
@@ -56,4 +48,43 @@ section {
   margin: 0 10px 10px 0;
   border-radius: 20px;
   font-size: small;
+}
+
+@media (max-width: 767px) {
+  section#about .about-img {
+    text-align: center !important;
+  }
+
+  p.lead,
+  section#about .about-text p {
+    font-size: 15px;
+  }
+
+  .skill-item {
+    font-size: 12px;
+  }
+
+  .card img {
+    height: auto;
+  }
+
+  .card .card-body {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  section#about .about-img {
+    width: auto;
+  }
+
+  p.lead,
+  section#about .about-text p {
+    font-size: 17px;
+  }
+
+  .card .card-body {
+    font-size: 15px;
+    height: 12rem;
+  }
 }
