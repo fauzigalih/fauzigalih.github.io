@@ -1,3 +1,16 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(255, 255, 255);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #93c2f1;
+}
+
 .jumbotron {
   padding-top: 7rem;
   background-color: #e2edff;
@@ -8,9 +21,39 @@
 }
 
 .card img {
-  height: 300px;
+  height: 200px;
+}
+
+.card .card-body {
+  height: 8rem;
+  padding-top: 1.3rem;
 }
 
 section {
   padding-top: 5rem;
+}
+
+.img-about {
+  width: 300px;
+}
+
+.about-img {
+  /* background-color: red; */
+}
+
+.about-text {
+  /* background-color: blue; */
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.skill-item {
+  border: 1px solid #71a8ff;
+  padding: 5px 15px;
+  margin: 0 10px 10px 0;
+  border-radius: 20px;
+  font-size: small;
 }
