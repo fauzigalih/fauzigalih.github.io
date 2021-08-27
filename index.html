@@ -194,10 +194,6 @@
             <h2>Contact Me</h2>
           </div>
         </div>
-        <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
-          <strong>Terimakasih!</strong> Pesan Kamu Telah Berhasil Dikirim.
-          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
         <div class="row justify-content-center">
           <div class="col-md-6">
             <form name="submit-to-google-sheet">
@@ -219,6 +215,24 @@
                 Loading...
               </button>
             </form>
+
+            <!-- Modal -->
+            <!-- Button trigger modal -->
+            <button id="triggerBtn" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#contactFormModal">Trigger Modal</button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="contactFormModal" tabindex="-1" aria-labelledby="contactFormModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="contactFormModalLabel">Sukses</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">Pesan telah terkirim, terimakasih!</div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal end -->
           </div>
         </div>
       </div>
@@ -241,6 +255,7 @@
       const myAlert = document.querySelector(".my-alert");
       const btnSend = document.querySelector(".btn-send");
       const btnLoading = document.querySelector(".btn-loading");
+      const modal = document.getElementById("triggerBtn");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -254,6 +269,7 @@
             btnSend.classList.toggle("d-none");
             btnLoading.classList.toggle("d-none");
             myAlert.classList.toggle("d-none");
+            modal.click();
 
             form.reset();
           })

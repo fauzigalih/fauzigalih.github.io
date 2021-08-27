@@ -11,6 +11,7 @@
   background-color: #93c2f1;
 }
 
+/* Body */
 .jumbotron {
   padding-top: 7rem;
   background-color: #e2edff;
@@ -50,9 +51,14 @@ section {
   font-size: small;
 }
 
+#triggerBtn {
+  display: none;
+}
+
 @media (max-width: 767px) {
   section#about .about-img {
     text-align: center !important;
+    margin-bottom: 1rem;
   }
 
   p.lead,
