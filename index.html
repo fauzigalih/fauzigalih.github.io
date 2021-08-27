@@ -199,15 +199,15 @@
             <form name="submit-to-google-sheet">
               <div class="mb-3">
                 <label for="name" class="form-label">Nama Lengkap</label>
-                <input name="name" type="name" class="form-control" id="name" aria-describedby="name" />
+                <input name="name" type="name" class="form-control" id="name" aria-describedby="name" required />
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" id="email" />
+                <input name="email" type="email" class="form-control" id="email" required />
               </div>
               <div class="mb-3">
                 <label for="message" class="form-label">Pesan</label>
-                <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+                <textarea name="message" class="form-control" id="message" rows="3" required></textarea>
               </div>
               <button type="submit" class="btn btn-primary btn-send">Kirim</button>
               <button class="btn btn-primary btn-loading d-none" type="button" disabled>
